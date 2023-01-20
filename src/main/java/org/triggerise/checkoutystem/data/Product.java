@@ -2,7 +2,7 @@ package org.triggerise.checkoutystem.data;
 
 import java.math.BigDecimal;
 
-public class Product {
+public abstract class Product {
     private String name;
     private String code;
     private BigDecimal price;

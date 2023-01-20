@@ -1,9 +1,11 @@
 package org.triggerise.checkoutystem.service;
 
+import org.triggerise.checkoutystem.data.Product;
+
 import java.math.BigDecimal;
 
 public interface CheckOutService {
-    void scan(String code);
+    void scan(Product product);
 
     BigDecimal total();
 }
