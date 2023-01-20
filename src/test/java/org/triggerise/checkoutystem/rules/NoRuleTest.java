@@ -26,7 +26,6 @@ public class NoRuleTest {
         noRule = new NoRule();
         products = new HashMap<>();
         discountableProduct = mock(DiscountableProduct.class);
-
     }
 
     @Test
@@ -37,5 +36,4 @@ public class NoRuleTest {
         BigDecimal actualPrice = noRule.apply(discountableProduct, 2);
         assertEquals(expectedPrice, actualPrice);
     }
-
 }

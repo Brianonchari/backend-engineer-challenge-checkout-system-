@@ -1,8 +1,8 @@
 package org.triggerise.checkoutystem.service;
 
-import org.triggerise.checkoutystem.data.*;
+import org.triggerise.checkoutystem.data.DiscountedProduct;
 import org.triggerise.checkoutystem.exception.InvalidProductException;
-import org.triggerise.checkoutystem.rules.*;
+import org.triggerise.checkoutystem.rules.DiscountableProduct;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
