@@ -1,13 +1,7 @@
 package org.triggerise.checkoutystem.service;
 
-import org.triggerise.checkoutystem.data.Mug;
-import org.triggerise.checkoutystem.data.Product;
-import org.triggerise.checkoutystem.data.TShirt;
-import org.triggerise.checkoutystem.data.USBKey;
-import org.triggerise.checkoutystem.rules.BulkDiscountRule;
-import org.triggerise.checkoutystem.rules.DiscountRule;
-import org.triggerise.checkoutystem.rules.NoRule;
-import org.triggerise.checkoutystem.rules.TwoForOneRule;
+import org.triggerise.checkoutystem.data.*;
+import org.triggerise.checkoutystem.rules.*;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -23,12 +17,9 @@ public class DiscountRuleService {
         discountRules.put(new USBKey(), new NoRule());
     }
 
-    public BigDecimal applyRule(Product product, int quantity){
-//        if(!discountRules.containsKey(product)){
-//            throw new IllegalArgumentException("Invalid Product");
-//        }
 
-        DiscountRule discountRule = discountRules.getOrDefault(product,new NoRule());
-        return discountRule.apply(product,quantity);
+
+    public BigDecimal applyRule(DiscountableProduct product, int quantity) {
+        return product.getDiscountRule().apply(product, quantity);
     }
 }

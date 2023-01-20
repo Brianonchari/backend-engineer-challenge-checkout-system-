@@ -6,5 +6,5 @@ import java.math.BigDecimal;
 
 public interface DiscountRule {
 
-    BigDecimal apply(Product product, int quantity);
+    BigDecimal apply(DiscountableProduct product, int quantity);
 }
