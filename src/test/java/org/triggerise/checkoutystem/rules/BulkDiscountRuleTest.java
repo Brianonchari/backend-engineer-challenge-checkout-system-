@@ -27,7 +27,7 @@ public class BulkDiscountRuleTest {
     public void testApply_discountApplied() {
         when(discountableProduct.getPrice()).thenReturn(new BigDecimal("21.00"));
         BigDecimal expectedPrice = new BigDecimal("74.00");
-        BigDecimal actualPrice = bulkDiscountRule.apply(discountableProduct,5);
+        BigDecimal actualPrice = bulkDiscountRule.apply(discountableProduct,3);
         assertEquals(expectedPrice, actualPrice);
     }
 

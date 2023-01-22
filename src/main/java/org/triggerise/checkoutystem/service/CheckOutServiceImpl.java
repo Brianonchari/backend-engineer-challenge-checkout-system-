@@ -5,10 +5,10 @@ import org.triggerise.checkoutystem.exception.InvalidProductException;
 import org.triggerise.checkoutystem.rules.DiscountableProduct;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 
-//
 
 public class CheckOutServiceImpl implements CheckOutService {
 
@@ -40,7 +40,7 @@ public class CheckOutServiceImpl implements CheckOutService {
             int quantity = entry.getValue();
             total = total.add(discountRuleService.applyRule(product, quantity));
         }
-        return total;
+        return total.setScale(2, RoundingMode.HALF_EVEN);
     }
 
     public Map<DiscountableProduct, Integer> getCart() {

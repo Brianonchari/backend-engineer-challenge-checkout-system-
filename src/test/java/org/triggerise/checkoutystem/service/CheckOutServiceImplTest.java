@@ -33,7 +33,7 @@ public class CheckOutServiceImplTest {
     public void setUp() {
         products = new HashMap<>();
         products.put("MUG", new DiscountedProduct(new Mug(), new TwoForOneRule()));
-        products.put("TSHIRT", new DiscountedProduct(new TShirt(),new BulkDiscountRule(3,0.3)));
+        products.put("TSHIRT", new DiscountedProduct(new TShirt(), new BulkDiscountRule(3, 0.3)));
         products.put("USBKEY", new DiscountedProduct(new USBKey(), new NoRule()));
         discountRuleService = new DiscountRuleService();
         checkOutService = new CheckOutServiceImpl(products, discountRuleService);
@@ -54,11 +54,15 @@ public class CheckOutServiceImplTest {
 
     @Test
     public void testTotalMethod() {
-        checkOutService.scan("MUG").scan("MUG").scan("TSHIRT").scan("TSHIRT").scan("TSHIRT").scan("USBKEY");
+        checkOutService.
+                scan("MUG")
+                .scan("MUG")
+                .scan("TSHIRT")
+                .scan("TSHIRT")
+                .scan("TSHIRT")
+                .scan("USBKEY");
         BigDecimal total = checkOutService.total();
         BigDecimal expectedTotal = new BigDecimal("58.00");
         assertEquals(expectedTotal, total);
     }
-
-
 }
