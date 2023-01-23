@@ -7,7 +7,10 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.triggerise.checkoutystem.rules.DiscountRule;
 import org.triggerise.checkoutystem.rules.DiscountableProduct;
 
+import java.math.BigDecimal;
+
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DiscountRuleServiceTest {
@@ -24,6 +27,9 @@ public class DiscountRuleServiceTest {
 
     @Test
     public void testApplyRule() {
+        when(discountableProduct.getDiscountRule()).thenReturn(discountRule);
+        when(discountRule.apply(discountableProduct,2)).thenReturn(new BigDecimal("21.00"));
+//        when(usbkey.getDiscountRule()).thenReturn(noRule);
 
     }
 

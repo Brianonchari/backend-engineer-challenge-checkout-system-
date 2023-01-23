@@ -12,6 +12,7 @@ import org.triggerise.checkoutystem.service.CheckOutServiceImpl;
 import org.triggerise.checkoutystem.service.DiscountRuleService;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +35,7 @@ public class Main {
                 .scan("TSHIRT")
                 .scan("USBKEY");
         BigDecimal totalPrice = checkout.total();
-        System.out.println("Total price: " + totalPrice);
+        System.out.println("Total price: " + totalPrice.setScale(2, RoundingMode.HALF_EVEN));
 
     }
 }

@@ -5,6 +5,12 @@ import org.triggerise.checkoutystem.rules.DiscountableProduct;
 
 import java.math.BigDecimal;
 
+/**
+ *  This class associates a specific product  with a specific discount rule,
+ *  Decouple product classes from discount logic
+ *
+ */
+
 public class DiscountedProduct implements DiscountableProduct {
     private Product product;
     private DiscountRule discountRule;
